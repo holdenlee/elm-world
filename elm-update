@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sed -i.bak -r -e 's_\[([a-zA-Z(,.)]+)\]_List \1_g' \
+    	      -e 's_\(\.\.\)_exposing \(\.\.\)_' \
+	      -e 's_type_type alias_' \
+	      -e 's_data_type_' \
+		 $1.elm		 
+
