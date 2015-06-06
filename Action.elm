@@ -56,12 +56,8 @@ setAction f = simpleAction (\(a,w) -> f a)
 
 dirFromInp : (Dir -> Action) -> Action
 dirFromInp f = (check (\(_,w) -> Set.member (getOneKey w.input.keys) dirs)) .& (\(a,w) -> f (getOneKey w.input.keys) (a,w))
---(check (always True)) .& (\(a,w) -> f (getOneKey w.input.keys) (a,w))
---(\(a,w) -> f (getOneKey w.input.keys) (a,w))
---(check (\(_,w) -> Set.member (getOneKey w.input.keys) dirs)) .& (\(a,w) -> f (getOneKey w.input.keys) (a,w))
 
 --display a message
-
 messageAction : (Actor -> String) -> Action
 messageAction f = (\(a,w) -> (a,{w | text <- w.text ++ "\n" ++ (f a)}))
 

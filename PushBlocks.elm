@@ -30,12 +30,6 @@ ppAction = seqActions [
             face, 
             moveIn .| makeActorIn (dirFromInp velocityDir)
            ]
-{-            ((seqActions [moveIn >> (\a -> watch "pp" a), messageAction2 (\(a,w) -> "move success?" ++ toString (agetInt "success" a))]) .|
-             (messageAction (\_ -> "try to make move") .& 
-              messageAction2 (\(a,w) -> getType (actorIn (a,w))) .& 
-             makeActorIn (dirFromInp velocityDir)) .& 
-            messageAction2 (\(a,w) -> toString (agetInt "v" (actorIn (a,w))) ++ toString (getOneKey w.input.keys)))
-           ]-}
 
 ppFace: D.Dict Int Element
 ppFace = faceDict (List.map (\t -> croppedImage t 30 30 "iceblox.gif") [(150,0),(60,0),(210,0),(120,30),(60,0)])
